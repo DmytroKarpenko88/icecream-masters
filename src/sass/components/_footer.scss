@@ -108,18 +108,19 @@
   height: 34px;
   background: var(--btn-cl);
   border-radius: 50%;
-  color: var(--main-txt-cl);
+  color: var(--icon-cl);
 }
 .socials__link:hover,
 .socials__link:focus {
-  background-color: var(--btn-cl);
   color: var(--main-txt-cl);
 }
 
-.socials-icon {
+.socials__icon {
   fill: currentColor;
 }
-
+.contacts-box {
+  display: flex;
+}
 .contact-box__title {
   font-style: normal;
   font-weight: 700;
@@ -135,7 +136,7 @@
 
 .contacts-box__number {
   color: var(--btn-txt-focus-cl);
-  display: block;
+  // display: block;
 }
 
 .footer-copiright {
