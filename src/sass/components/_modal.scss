@@ -61,6 +61,12 @@
   right: 12px;
   fill: #444;
   cursor: pointer;
+  transition: fill 250ms linear;
+}
+
+.modal__cross:hover,
+.modal__cross:focus {
+  fill: #f8d24e;
 }
 
 /* Стили для кнопок. Мы ведь порядочные разработчики, негоже простые ссылки оставлять */
@@ -467,6 +473,8 @@ textarea {
   border-radius: 10px;
   border: none;
 
+  transition: color, background-color 250ms linear;
+
   @include mq(tablet, max) {
     width: 121px;
   }
@@ -474,6 +482,14 @@ textarea {
   @media screen and (min-width: $tablet) {
     width: 132px;
   }
+}
+.modal-ingredients__btn:hover {
+  background-color: #0A8817;
+  color: #000000;
+}
+.modal-ingredients__btn:focus {
+  background-color: #0A8817;
+  color: #FFFFFF;
 }
 // MAIIA / Modal 3 VIDEO modal
 
@@ -618,15 +634,15 @@ textarea {
 
 .product-modal {
   height: 100vh;
-
-  overflow: auto;
+  overflow: scroll;
 
   @media screen and (min-width: 768px) {
     min-width: 568px;
     // min-height: 644px;
     padding: 32px 54px;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 767.98px) {
+    padding: 26px;
     // height: 991px;
   }
   @media screen and (min-width: 480px) {
@@ -639,17 +655,26 @@ textarea {
   // background: #fcfcfc;
   // border: 2px solid #f8d24e;
   // border-radius: 10px;
-  padding: 26px;
+ 
 }
 
 .product-modal__title {
   color: var(--accent-txt-cl);
+  font-family: 'Seymour One';
+  font-style: normal;
+
+  text-align: center;
+
+  @include mq(tablet, max) {
+    @include fonts(16px, 24px, 400);
+    margin-bottom: 83px;
+  }
+  
 
   @media screen and (min-width: 768px) {
     margin-bottom: 103px;
+    @include fonts(20px, 28px, 400);
   }
-  margin-bottom: 83px;
-  text-align: center;
 }
 
 .product-list {
@@ -683,7 +708,7 @@ textarea {
   @media screen and (min-width: 768px) {
     margin-bottom: 40px;
   }
-  @media screen and (max-width: 767px) {
+  @media screen and (max-width: 767.98px) {
     margin-bottom: 32px;
   }
 }
@@ -697,8 +722,15 @@ textarea {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -100%);
+
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
+
+  background-image: url(../images/modal/bynow1-desk@1x.png);
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    background-image: url(../images/modal/bynow1-desk@2x.png);
+  }
 }
 
 .products__ice-cream::after {
@@ -734,6 +766,12 @@ textarea {
 
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
+
+  background-image: url(../images/modal/bynow2-desk@1x.png);
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    background-image: url(../images/modal/bynow2-desk@2x.png);
+  }
 }
 
 .products__ice-coffe::after {
@@ -769,6 +807,12 @@ textarea {
 
   background-repeat: no-repeat;
   background-position: center;
+  background-size: cover;
+
+  background-image: url(../images/modal/bynow3-desk@1x.png);
+  @media (min-device-pixel-ratio: 2), (min-resolution: 192dpi), (min-resolution: 2dppx) {
+    background-image: url(../images/modal/bynow3-desk@2x.png);
+  }
 }
 
 .products__milkshake::after {
@@ -790,9 +834,7 @@ textarea {
   display: block;
   font-family: 'Montserrat';
   font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: calc(20 / 16);
+  @include fonts(14px, 20px, 700, 0.04em);
 
   text-align: center;
   letter-spacing: 0.04em;
@@ -802,90 +844,81 @@ textarea {
 // PRODUCT FORM
 
 .franchise-list__input {
-  @media screen and (min-width: 768px) {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 368px;
-    height: 42px;
-    padding-left: 16px;
-  }
-
-  display: block;
-  margin: 0 auto;
-  width: 100%;
-  height: 32px;
-  margin-bottom: 12px;
-  padding-left: 12px;
+  height: 42px;
+  padding: 11px 10px;
+  margin-bottom: 16px;
 
   background-color: rgba(248, 210, 78, 0.1);
   border: 1px solid #84a178;
   border-radius: 10px;
+  @include mq(tablet, max) {
+    width: 240px;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 368px;
+  }
 }
 
 .franchise-list__input::placeholder {
-  @media screen and (min-width: 768px) {
-    font-size: 14px;
-    line-height: calc(20 / 14);
-  }
   font-family: 'Montserrat';
   font-style: normal;
-  font-weight: 400;
-  font-size: 12px;
-  line-height: calc(17 / 12);
-
-  color: #131313;
+  color: var(--accent-txt-cl);
+  @include fonts(14px, 19.6px, 400);
 }
 
 .product-list__comment {
-  @media screen and (min-width: 768px) {
-    width: 368px;
-    height: 84px;
-    margin-bottom: 32px;
-    padding-left: 16px;
-    padding-top: 11px;
-  }
-  width: 100%;
-  height: 64px;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 26px;
-  padding-left: 12px;
-  padding-top: 8px;
+  height: 84px;
+  padding: 11px 10px;
 
   background-color: rgba(248, 210, 78, 0.1);
   border: 1px solid #84a178;
   border-radius: 10px;
+  @include mq(tablet, max) {
+    width: 240px;
+    margin-bottom: 24px;
+  }
+  @media screen and (min-width: $tablet) {
+    width: 368px;
+    margin-bottom: 32px;
+  }
 }
 
 .product-list__comment::placeholder {
-  @media screen and (min-width: 768px) {
-    font-size: 14px;
-    line-height: calc(20 / 14);
-  }
-  font-weight: 400;
-  font-size: 12px;
-  line-height: calc(17 / 12);
-  color: #131313;
+  font-family: 'Montserrat';
+  font-style: normal;
+  color: var(--accent-txt-cl);
+  @include fonts(14px, 19.6px, 400);
 }
 
 .franchise__btn {
-  @media screen and (min-width: 768px) {
-    font-weight: 600;
-    font-size: 14px;
-    line-height: calc(17 / 14);
-  }
+  font-family: 'Montserrat';
+  font-style: normal;
+  color: var(--accent-txt-cl);
+  @include fonts(14px, 17px, 600);
+
   display: block;
   margin: 0 auto;
   padding: 12px 34px;
 
-  font-family: 'Montserrat';
-  font-weight: 600;
-  font-size: 12px;
-  line-height: calc(15 / 12);
-
-  color: #131313;
-  background-color: #f8d24e;
+  background-color: var(--btn-cl);
   border-radius: 10px;
   border: none;
+
+  transition: color, background-color 250ms linear;
+
+  @include mq(tablet, max) {
+    width: 121px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 132px;
+  }
+}
+.franchise__btn:hover {
+  background-color: #0A8817;
+  color: #000000;
+}
+.franchise__btn:focus {
+  background-color: #0A8817;
+  color: #FFFFFF;
 }
